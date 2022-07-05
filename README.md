@@ -61,6 +61,10 @@ use Aston\AliyunSls\Logger;
 Logger::instance()->write('testLog', [
     'is_test' => 1
 ]);
+//等价于
+Logger::instance('default')->write('testLog', [
+    'is_test' => 1
+]);
 
 
 //通过指定日志配置 读取
