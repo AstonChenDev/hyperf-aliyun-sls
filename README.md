@@ -64,7 +64,7 @@ Logger::instance()->write('testLog', [
 
 
 //通过指定日志配置 读取
-$log = Logger::instance('appsflyer')->read(
+$log = Logger::instance('another')->read(
    $start_timestamp,
    $end_timestamp,
    $topic,
