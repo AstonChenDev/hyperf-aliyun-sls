@@ -18,13 +18,13 @@ require：
 使用 composer
 
 ```
-composer require kiwi/aliyun-sls
+composer require aston/aliyun-sls
 ```
 
 发布配置文件
 
 ```
-php bin/hyperf.php vendor:publish kiwi/aliyun-sls
+php bin/hyperf.php vendor:publish aston/aliyun-sls
 ```
 
 ## 配置文件说明
