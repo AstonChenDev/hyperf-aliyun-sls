@@ -1,6 +1,7 @@
 <?php
 
 //declare(strict_types=1);
+
 /**
  * Created by PhpStorm.
  *​
@@ -12,7 +13,7 @@
  */
 
 
-namespace Kiwi\AliyunSls\Response;
+namespace Aston\AliyunSls\Response;
 
 
 /**
@@ -20,7 +21,7 @@ namespace Kiwi\AliyunSls\Response;
  * aliyun sdk response
  * The base response class of all log response.
  * @author log service dev
- * @package Kiwi\AliyunSls\Response
+ * @package Aston\AliyunSls\Response
  * User：YM
  * Date：2019/12/30
  * Time：下午4:44
@@ -38,7 +39,8 @@ class Response
      * @param array $header
      *            HTTP response header
      */
-    public function __construct($headers) {
+    public function __construct($headers)
+    {
         $this->headers = $headers;
     }
 
@@ -47,7 +49,8 @@ class Response
      *
      * @return array HTTP response header
      */
-    public function getAllHeaders() {
+    public function getAllHeaders()
+    {
         return $this->headers;
     }
 
@@ -59,7 +62,8 @@ class Response
      *
      * @return string HTTP response header. '' will be return if not set.
      */
-    public function getHeader($key) {
+    public function getHeader($key)
+    {
         return isset ($this->headers[$key]) ? $this->headers [$key] : '';
     }
 
@@ -68,7 +72,8 @@ class Response
      *
      * @return string request id
      */
-    public function getRequestId() {
-        return isset ( $this->headers ['x-log-requestid'] ) ? $this->headers ['x-log-requestid'] : '';
+    public function getRequestId()
+    {
+        return isset ($this->headers ['x-log-requestid']) ? $this->headers ['x-log-requestid'] : '';
     }
 }

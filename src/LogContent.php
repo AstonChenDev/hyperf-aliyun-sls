@@ -1,6 +1,7 @@
 <?php
 
 //declare(strict_types=1);
+
 /**
  * Created by PhpStorm.
  *​
@@ -14,14 +15,14 @@
  */
 
 
-namespace Kiwi\AliyunSls;
+namespace Aston\AliyunSls;
 
 
 /**
  * LogContent
  * 日志content，message Log.Content
  * 文档：https://help.aliyun.com/document_detail/29026.html?spm=a2c4g.11186623.6.1143.7d3612cbADddVN
- * @package Kiwi\AliyunSls
+ * @package Aston\AliyunSls
  * User：YM
  * Date：2019/12/24
  * Time：下午5:39
@@ -29,8 +30,10 @@ namespace Kiwi\AliyunSls;
 class LogContent
 {
     private $_unknown;
-    function __construct($in = NULL, &$limit = PHP_INT_MAX) {
-        if($in !== NULL) {
+
+    function __construct($in = NULL, &$limit = PHP_INT_MAX)
+    {
+        if ($in !== NULL) {
             if (is_string($in)) {
                 $fp = fopen('php://memory', 'r+b');
                 fwrite($fp, $in);
@@ -43,14 +46,16 @@ class LogContent
             $this->read($fp, $limit);
         }
     }
-    function read($fp, &$limit = PHP_INT_MAX) {
-        while(!feof($fp) && $limit > 0) {
+
+    function read($fp, &$limit = PHP_INT_MAX)
+    {
+        while (!feof($fp) && $limit > 0) {
             $tag = Protobuf::read_varint($fp, $limit);
             if ($tag === false) break;
-            $wire  = $tag & 0x07;
+            $wire = $tag & 0x07;
             $field = $tag >> 3;
             //var_dump("Log_Content: Found $field type " . Protobuf::get_wiretype($wire) . " $limit bytes left");
-            switch($field) {
+            switch ($field) {
                 case 1:
                     ASSERT('$wire == 2');
                     $len = Protobuf::read_varint($fp, $limit);
@@ -63,7 +68,7 @@ class LogContent
                     if ($tmp === false)
                         throw new \RuntimeException("fread($len) returned false");
                     $this->key_ = $tmp;
-                    $limit-=$len;
+                    $limit -= $len;
                     break;
                 case 2:
                     ASSERT('$wire == 2');
@@ -77,7 +82,7 @@ class LogContent
                     if ($tmp === false)
                         throw new \RuntimeException("fread($len) returned false");
                     $this->value_ = $tmp;
-                    $limit-=$len;
+                    $limit -= $len;
                     break;
                 default:
                     $this->_unknown[$field . '-' . Protobuf::get_wiretype($wire)][] = Protobuf::read_field($fp, $wire, $limit);
@@ -86,7 +91,9 @@ class LogContent
         if (!$this->validateRequired())
             throw new \RuntimeException('Required fields are missing');
     }
-    function write($fp) {
+
+    function write($fp)
+    {
         if (!$this->validateRequired())
             throw new \RuntimeException('Required fields are missing');
         if (!is_null($this->key_)) {
@@ -100,7 +107,9 @@ class LogContent
             fwrite($fp, $this->value_);
         }
     }
-    public function size() {
+
+    public function size()
+    {
         $size = 0;
         if (!is_null($this->key_)) {
             $l = strlen($this->key_);
@@ -112,28 +121,66 @@ class LogContent
         }
         return $size;
     }
-    public function validateRequired() {
+
+    public function validateRequired()
+    {
         if ($this->key_ === null) return false;
         if ($this->value_ === null) return false;
         return true;
     }
-    public function __toString() {
+
+    public function __toString()
+    {
         return ''
             . Protobuf::toString('unknown', $this->_unknown)
             . Protobuf::toString('key_', $this->key_)
             . Protobuf::toString('value_', $this->value_);
     }
+
     // required string Key = 1;
     private $key_ = null;
-    public function clearKey() { $this->key_ = null; }
-    public function hasKey() { return $this->key_ !== null; }
-    public function getKey() { if($this->key_ === null) return ""; else return $this->key_; }
-    public function setKey($value) { $this->key_ = $value; }
+
+    public function clearKey()
+    {
+        $this->key_ = null;
+    }
+
+    public function hasKey()
+    {
+        return $this->key_ !== null;
+    }
+
+    public function getKey()
+    {
+        if ($this->key_ === null) return ""; else return $this->key_;
+    }
+
+    public function setKey($value)
+    {
+        $this->key_ = $value;
+    }
+
     // required string Value = 2;
     private $value_ = null;
-    public function clearValue() { $this->value_ = null; }
-    public function hasValue() { return $this->value_ !== null; }
-    public function getValue() { if($this->value_ === null) return ""; else return $this->value_; }
-    public function setValue($value) { $this->value_ = $value; }
+
+    public function clearValue()
+    {
+        $this->value_ = null;
+    }
+
+    public function hasValue()
+    {
+        return $this->value_ !== null;
+    }
+
+    public function getValue()
+    {
+        if ($this->value_ === null) return ""; else return $this->value_;
+    }
+
+    public function setValue($value)
+    {
+        $this->value_ = $value;
+    }
     // @@protoc_insertion_point(class_scope:Log.Content)
 }

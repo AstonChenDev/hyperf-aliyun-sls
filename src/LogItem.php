@@ -1,6 +1,7 @@
 <?php
 
 //declare(strict_types=1);
+
 /**
  * Created by PhpStorm.
  *​
@@ -12,14 +13,14 @@
  */
 
 
-namespace Kiwi\AliyunSls;
+namespace Aston\AliyunSls;
 
 
 /**
  * LogItem used to present a log, it contains log time and multiple
  * key/value pairs to present the log contents.
  * @author log service dev
- * @package Kiwi\AliyunSls
+ * @package Aston\AliyunSls
  * User：YM
  * Date：2019/12/24
  * Time：下午6:11
@@ -46,14 +47,14 @@ class LogItem
      */
     public function __construct($time = null, $contents = null)
     {
-        if (! $time) {
-            $time = time ();
+        if (!$time) {
+            $time = time();
         }
         $this->time = $time;
         if ($contents) {
             $this->contents = $contents;
         } else {
-            $this->contents = array ();
+            $this->contents = array();
         }
     }
 

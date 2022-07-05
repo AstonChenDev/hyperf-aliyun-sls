@@ -1,6 +1,7 @@
 <?php
 
 //declare(strict_types=1);
+
 /**
  * Created by PhpStorm.
  *​
@@ -14,13 +15,13 @@
  */
 
 
-namespace Kiwi\AliyunSls;
+namespace Aston\AliyunSls;
 
 
 /**
  * LogUtil
  * 日志工具
- * @package Kiwi\AliyunSls
+ * @package Aston\AliyunSls
  * User：YM
  * Date：2019/12/24
  * Time：下午12:35
@@ -94,10 +95,10 @@ class LogUtil
      */
     public static function urlEncode($params)
     {
-        ksort ( $params );
+        ksort($params);
         $url = "";
         $first = true;
-        foreach ( $params as $key => $value ) {
+        foreach ($params as $key => $value) {
             $val = urlencode($value);
             if ($first) {
                 $first = false;
@@ -120,11 +121,11 @@ class LogUtil
      */
     public static function handleLOGHeaders($header)
     {
-        ksort ( $header );
+        ksort($header);
         $content = '';
         $first = true;
-        foreach ( $header as $key => $value )
-            if (strpos ( $key, "x-log-" ) === 0 || strpos ( $key, "x-acs-" ) === 0) {
+        foreach ($header as $key => $value)
+            if (strpos($key, "x-log-") === 0 || strpos($key, "x-acs-") === 0) {
                 if ($first) {
                     $content .= $key . ':' . $value;
                     $first = false;
@@ -148,10 +149,10 @@ class LogUtil
     public static function handleResource($resource, $params)
     {
         if ($params) {
-            ksort ( $params );
+            ksort($params);
             $urlString = "";
             $first = true;
-            foreach ( $params as $key => $value ) {
+            foreach ($params as $key => $value) {
                 if ($first) {
                     $first = false;
                     $urlString = "$key=$value";
@@ -179,21 +180,21 @@ class LogUtil
      */
     public static function getSignature($method, $resource, $accessKeySecret, $params, $headers)
     {
-        if ( !$accessKeySecret ) {
+        if (!$accessKeySecret) {
             return '';
         }
         $content = $method . "\n";
-        if ( isset($headers['Content-MD5']) ) {
+        if (isset($headers['Content-MD5'])) {
             $content .= $headers['Content-MD5'];
         }
         $content .= "\n";
-        if ( isset($headers['Content-Type']) ) {
+        if (isset($headers['Content-Type'])) {
             $content .= $headers['Content-Type'];
         }
         $content .= "\n";
         $content .= $headers['Date'] . "\n";
         $content .= self::handleLOGHeaders($headers) . "\n";
-        $content .= self::handleResource ($resource, $params);
+        $content .= self::handleResource($resource, $params);
         return self::hmacSHA1($content, $accessKeySecret);
     }
 
@@ -207,14 +208,15 @@ class LogUtil
      * @param $logGroup
      * @return bool|string
      */
-    public static function toBytes($logGroup) {
+    public static function toBytes($logGroup)
+    {
         $mem = fopen("php://memory", "rwb");
         $logGroup->write($mem);
         rewind($mem);
-        $bytes="";
+        $bytes = "";
 
-        if(feof($mem)===false){
-            $bytes = fread($mem, 10*1024*1024);
+        if (feof($mem) === false) {
+            $bytes = fread($mem, 10 * 1024 * 1024);
         }
         fclose($mem);
         return $bytes;

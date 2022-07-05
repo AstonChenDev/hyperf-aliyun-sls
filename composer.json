@@ -1,11 +1,11 @@
 {
-  "name": "kiwi/aliyun-sls",
+  "name": "aston/aliyun-sls",
   "description": "AliYun SLS Log For Hyperf",
   "type": "library",
   "license": "MIT",
   "autoload": {
     "psr-4": {
-      "Kiwi\\AliyunSls\\": "src/"
+      "Aston\\AliyunSls\\": "src/"
     }
   },
   "authors": [
@@ -35,7 +35,7 @@
   },
   "extra": {
     "hyperf": {
-      "config": "Kiwi\\AliyunSls\\ConfigProvider"
+      "config": "Aston\\AliyunSls\\ConfigProvider"
     }
   }
 }

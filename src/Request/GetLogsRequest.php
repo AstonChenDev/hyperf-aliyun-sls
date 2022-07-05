@@ -1,13 +1,13 @@
 <?php
 
 
-namespace Kiwi\AliyunSls\Request;
+namespace Aston\AliyunSls\Request;
 
 
 /**
  * GetLogsRequest
  * The request used to send data to log server.
- * @package Kiwi\AliyunSls\Request
+ * @package Aston\AliyunSls\Request
  * User： 陈朋
  */
 class GetLogsRequest extends Request

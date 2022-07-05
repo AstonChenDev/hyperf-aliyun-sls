@@ -1,12 +1,12 @@
 <?php
 
-namespace Kiwi\AliyunSls;
+namespace Aston\AliyunSls;
 
 use Hyperf\Contract\ConfigInterface;
 use Hyperf\Utils\ApplicationContext;
 use Hyperf\Context\Context;
-use Kiwi\AliyunSls\Contact\ClientFactoryInterface;
-use Kiwi\AliyunSls\Contact\ClientInterface;
+use Aston\AliyunSls\Contact\ClientFactoryInterface;
+use Aston\AliyunSls\Contact\ClientInterface;
 
 class Logger
 {

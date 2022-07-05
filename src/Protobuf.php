@@ -1,6 +1,7 @@
 <?php
 
 //declare(strict_types=1);
+
 /**
  * Created by PhpStorm.
  *​
@@ -14,7 +15,7 @@
  */
 
 
-namespace Kiwi\AliyunSls;
+namespace Aston\AliyunSls;
 
 
 /**
@@ -23,47 +24,59 @@ namespace Kiwi\AliyunSls;
  * This class should be included by the developer before they use a
  * generated protobuf class.
  */
-class Protobuf {
-    const TYPE_DOUBLE   = 1;   // double, exactly eight bytes on the wire.
-    const TYPE_FLOAT    = 2;   // float, exactly four bytes on the wire.
-    const TYPE_INT64    = 3;   // int64, varint on the wire.  Negative numbers
+class Protobuf
+{
+    const TYPE_DOUBLE = 1;   // double, exactly eight bytes on the wire.
+    const TYPE_FLOAT = 2;   // float, exactly four bytes on the wire.
+    const TYPE_INT64 = 3;   // int64, varint on the wire.  Negative numbers
     // take 10 bytes.  Use TYPE_SINT64 if negative
     // values are likely.
-    const TYPE_UINT64   = 4;   // uint64, varint on the wire.
-    const TYPE_INT32    = 5;   // int32, varint on the wire.  Negative numbers
+    const TYPE_UINT64 = 4;   // uint64, varint on the wire.
+    const TYPE_INT32 = 5;   // int32, varint on the wire.  Negative numbers
     // take 10 bytes.  Use TYPE_SINT32 if negative
     // values are likely.
-    const TYPE_FIXED64  = 6;   // uint64, exactly eight bytes on the wire.
-    const TYPE_FIXED32  = 7;   // uint32, exactly four bytes on the wire.
-    const TYPE_BOOL     = 8;   // bool, varint on the wire.
-    const TYPE_STRING   = 9;   // UTF-8 text.
-    const TYPE_GROUP    = 10;  // Tag-delimited message.  Deprecated.
-    const TYPE_MESSAGE  = 11;  // Length-delimited message.
-    const TYPE_BYTES    = 12;  // Arbitrary byte array.
-    const TYPE_UINT32   = 13;  // uint32, varint on the wire
-    const TYPE_ENUM     = 14;  // Enum, varint on the wire
+    const TYPE_FIXED64 = 6;   // uint64, exactly eight bytes on the wire.
+    const TYPE_FIXED32 = 7;   // uint32, exactly four bytes on the wire.
+    const TYPE_BOOL = 8;   // bool, varint on the wire.
+    const TYPE_STRING = 9;   // UTF-8 text.
+    const TYPE_GROUP = 10;  // Tag-delimited message.  Deprecated.
+    const TYPE_MESSAGE = 11;  // Length-delimited message.
+    const TYPE_BYTES = 12;  // Arbitrary byte array.
+    const TYPE_UINT32 = 13;  // uint32, varint on the wire
+    const TYPE_ENUM = 14;  // Enum, varint on the wire
     const TYPE_SFIXED32 = 15;  // int32, exactly four bytes on the wire
     const TYPE_SFIXED64 = 16;  // int64, exactly eight bytes on the wire
-    const TYPE_SINT32   = 17;  // int32, ZigZag-encoded varint on the wire
-    const TYPE_SINT64   = 18;  // int64, ZigZag-encoded varint on the wire
+    const TYPE_SINT32 = 17;  // int32, ZigZag-encoded varint on the wire
+    const TYPE_SINT64 = 18;  // int64, ZigZag-encoded varint on the wire
+
     /**
      * Returns a string representing this wiretype
      */
-    public static function get_wiretype($wire_type) {
+    public static function get_wiretype($wire_type)
+    {
         switch ($wire_type) {
-            case 0: return 'varint';
-            case 1: return '64-bit';
-            case 2: return 'length-delimited';
-            case 3: return 'group start';
-            case 4: return 'group end';
-            case 5: return '32-bit';
-            default: return 'unknown';
+            case 0:
+                return 'varint';
+            case 1:
+                return '64-bit';
+            case 2:
+                return 'length-delimited';
+            case 3:
+                return 'group start';
+            case 4:
+                return 'group end';
+            case 5:
+                return '32-bit';
+            default:
+                return 'unknown';
         }
     }
+
     /**
      * Returns how big (in bytes) this number would be as a varint
      */
-    public static function size_varint($i) {
+    public static function size_varint($i)
+    {
         /*		$len = 0;
                 do {
                     $i = $i >> 7;
@@ -91,6 +104,7 @@ class Protobuf {
         if ($i < 0x8000000000000000)
             return 9;
     }
+
     /**
      * read_varint
      * 原来注释有注解报错
@@ -103,7 +117,8 @@ class Protobuf {
      * @param null $limit
      * @return bool|int , the Varint from the stream, or false if the stream has reached eof
      */
-    public static function read_varint($fp, &$limit = null) {
+    public static function read_varint($fp, &$limit = null)
+    {
         $value = '';
         $len = 0;
         do { // Keep reading until we find the last byte
@@ -130,14 +145,47 @@ class Protobuf {
         }
         return $i;
     }
-    public static function read_double($fp){throw new Exception("I've not coded it yet Exception");}
-    public static function read_float ($fp){throw new Exception("I've not coded it yet Exception");}
-    public static function read_uint64($fp){throw new Exception("I've not coded it yet Exception");}
-    public static function read_int64 ($fp){throw new Exception("I've not coded it yet Exception");}
-    public static function read_uint32($fp){throw new Exception("I've not coded it yet Exception");}
-    public static function read_int32 ($fp){throw new Exception("I've not coded it yet Exception");}
-    public static function read_zint32($fp){throw new Exception("I've not coded it yet Exception");}
-    public static function read_zint64($fp){throw new Exception("I've not coded it yet Exception");}
+
+    public static function read_double($fp)
+    {
+        throw new Exception("I've not coded it yet Exception");
+    }
+
+    public static function read_float($fp)
+    {
+        throw new Exception("I've not coded it yet Exception");
+    }
+
+    public static function read_uint64($fp)
+    {
+        throw new Exception("I've not coded it yet Exception");
+    }
+
+    public static function read_int64($fp)
+    {
+        throw new Exception("I've not coded it yet Exception");
+    }
+
+    public static function read_uint32($fp)
+    {
+        throw new Exception("I've not coded it yet Exception");
+    }
+
+    public static function read_int32($fp)
+    {
+        throw new Exception("I've not coded it yet Exception");
+    }
+
+    public static function read_zint32($fp)
+    {
+        throw new Exception("I've not coded it yet Exception");
+    }
+
+    public static function read_zint64($fp)
+    {
+        throw new Exception("I've not coded it yet Exception");
+    }
+
     /**
      * Writes a varint to $fp
      * returns the number of bytes written
@@ -145,7 +193,8 @@ class Protobuf {
      * @param $i The int to encode
      * @return The number of bytes written
      */
-    public static function write_varint($fp, $i) {
+    public static function write_varint($fp, $i)
+    {
         $len = 0;
         do {
             $v = $i & 0x7F;
@@ -158,18 +207,52 @@ class Protobuf {
         } while ($i != 0);
         return $len;
     }
-    public static function write_double($fp, $d){throw new Exception("I've not coded it yet Exception");}
-    public static function write_float ($fp, $f){throw new Exception("I've not coded it yet Exception");}
-    public static function write_uint64($fp, $i){throw new Exception("I've not coded it yet Exception");}
-    public static function write_int64 ($fp, $i){throw new Exception("I've not coded it yet Exception");}
-    public static function write_uint32($fp, $i){throw new Exception("I've not coded it yet Exception");}
-    public static function write_int32 ($fp, $i){throw new Exception("I've not coded it yet Exception");}
-    public static function write_zint32($fp, $i){throw new Exception("I've not coded it yet Exception");}
-    public static function write_zint64($fp, $i){throw new Exception("I've not coded it yet Exception");}
+
+    public static function write_double($fp, $d)
+    {
+        throw new Exception("I've not coded it yet Exception");
+    }
+
+    public static function write_float($fp, $f)
+    {
+        throw new Exception("I've not coded it yet Exception");
+    }
+
+    public static function write_uint64($fp, $i)
+    {
+        throw new Exception("I've not coded it yet Exception");
+    }
+
+    public static function write_int64($fp, $i)
+    {
+        throw new Exception("I've not coded it yet Exception");
+    }
+
+    public static function write_uint32($fp, $i)
+    {
+        throw new Exception("I've not coded it yet Exception");
+    }
+
+    public static function write_int32($fp, $i)
+    {
+        throw new Exception("I've not coded it yet Exception");
+    }
+
+    public static function write_zint32($fp, $i)
+    {
+        throw new Exception("I've not coded it yet Exception");
+    }
+
+    public static function write_zint64($fp, $i)
+    {
+        throw new Exception("I've not coded it yet Exception");
+    }
+
     /**
      * Seek past a varint
      */
-    public static function skip_varint($fp) {
+    public static function skip_varint($fp)
+    {
         $len = 0;
         do { // Keep reading until we find the last byte
             $b = fread($fp, 1);
@@ -179,10 +262,12 @@ class Protobuf {
         } while ($b >= "\x80");
         return $len;
     }
+
     /**
      * Seek past the current field
      */
-    public static function skip_field($fp, $wire_type) {
+    public static function skip_field($fp, $wire_type)
+    {
         switch ($wire_type) {
             case 0: // varint
                 return Protobuf::skip_varint($fp);
@@ -201,16 +286,18 @@ class Protobuf {
             //	return 0; // Do nothing
             case 5: // 32bit
                 if (fseek($fp, 4, SEEK_CUR) === -1)
-                    throw new Exception('skip('. ProtoBuf::get_wiretype(5) . '): Error seeking');
+                    throw new Exception('skip(' . ProtoBuf::get_wiretype(5) . '): Error seeking');
                 return 4;
             default:
-                throw new Exception('skip('. ProtoBuf::get_wiretype($wire_type) . '): Unsupported wire_type');
+                throw new Exception('skip(' . ProtoBuf::get_wiretype($wire_type) . '): Unsupported wire_type');
         }
     }
+
     /**
      * Read a unknown field from the stream and return its raw bytes
      */
-    public static function read_field($fp, $wire_type, &$limit = null) {
+    public static function read_field($fp, $wire_type, &$limit = null)
+    {
         switch ($wire_type) {
             case 0: // varint
                 return Protobuf::read_varint($fp, $limit);
@@ -228,23 +315,26 @@ class Protobuf {
                 $limit -= 4;
                 return fread($fp, 4);
             default:
-                throw new Exception('read_unknown('. ProtoBuf::get_wiretype($wire_type) . '): Unsupported wire_type');
+                throw new Exception('read_unknown(' . ProtoBuf::get_wiretype($wire_type) . '): Unsupported wire_type');
         }
     }
+
     /**
      * Used to aid in pretty printing of Protobuf objects
      */
     private static $print_depth = 0;
     private static $indent_char = "\t";
     private static $print_limit = 50;
-    public static function toString($key, $value) {
+
+    public static function toString($key, $value)
+    {
         if (is_null($value))
             return;
         $ret = str_repeat(self::$indent_char, self::$print_depth) . "$key=>";
         if (is_array($value)) {
             $ret .= "array(\n";
             self::$print_depth++;
-            foreach($value as $i => $v)
+            foreach ($value as $i => $v)
                 $ret .= self::toString("[$i]", $v);
             self::$print_depth--;
             $ret .= str_repeat(self::$indent_char, self::$print_depth) . ")\n";

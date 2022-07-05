@@ -1,6 +1,6 @@
 <?php
 
-namespace Kiwi\AliyunSls\Contact;
+namespace Aston\AliyunSls\Contact;
 
 interface ClientFactoryInterface
 {

@@ -55,7 +55,7 @@ return [
 
 ```php
 
-use Kiwi\AliyunSls\Logger;
+use Aston\AliyunSls\Logger;
 
 //通过默认日志配置 写入
 Logger::instance()->write('testLog', [

@@ -1,6 +1,7 @@
 <?php
 
 //declare(strict_types=1);
+
 /**
  * Created by PhpStorm.
  *​
@@ -14,13 +15,13 @@
  */
 
 
-namespace Kiwi\AliyunSls\Request;
+namespace Aston\AliyunSls\Request;
 
 
 /**
  * PutLogsRequest
  * The request used to send data to log server.
- * @package Kiwi\AliyunSls\Request
+ * @package Aston\AliyunSls\Request
  * User：YM
  * Date：2019/12/24
  * Time：下午4:11
@@ -62,9 +63,9 @@ class PutLogsRequest extends Request
      * @param array $logitems
      *            LogItem array,log data
      */
-    public function __construct($project = null, $logstore = null, $topic = null, $source = null, $logitems = null,$shardKey=null)
+    public function __construct($project = null, $logstore = null, $topic = null, $source = null, $logitems = null, $shardKey = null)
     {
-        parent::__construct ( $project );
+        parent::__construct($project);
         $this->logstore = $logstore;
         $this->topic = $topic;
         $this->source = $source;
@@ -155,6 +156,7 @@ class PutLogsRequest extends Request
     {
         $this->source = $source;
     }
+
     /**
      * set shard key
      *
@@ -162,8 +164,9 @@ class PutLogsRequest extends Request
      */
     public function setShardKey($key)
     {
-        $this->shardKey=$key;
+        $this->shardKey = $key;
     }
+
     /**
      * get shard key
      *

@@ -1,12 +1,12 @@
 <?php
 
-namespace Kiwi\AliyunSls\Request;
+namespace Aston\AliyunSls\Request;
 
 
 /**
  * Request
  * 类的介绍
- * @package Kiwi\AliyunSls\Request
+ * @package Aston\AliyunSls\Request
  */
 class Request
 {
@@ -21,7 +21,8 @@ class Request
      * @param string $project
      *            project name
      */
-    public function __construct($project) {
+    public function __construct($project)
+    {
         $this->project = $project;
     }
 
@@ -30,7 +31,8 @@ class Request
      *
      * @return string project name
      */
-    public function getProject() {
+    public function getProject()
+    {
         return $this->project;
     }
 
@@ -40,7 +42,8 @@ class Request
      * @param string $project
      *            project name
      */
-    public function setProject($project) {
+    public function setProject($project)
+    {
         $this->project = $project;
     }
 }

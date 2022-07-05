@@ -1,24 +1,23 @@
 <?php
 
 
-namespace Kiwi\AliyunSls;
+namespace Aston\AliyunSls;
 
 
 use Hyperf\Config\Config;
 use Hyperf\Contract\ConfigInterface;
 use Hyperf\Guzzle\ClientFactory as GuzzleClientFactory;
-use Kiwi\AliyunSls\Contact\ClientInterface;
-use Kiwi\AliyunSls\Implement\Exception;
-use Kiwi\AliyunSls\Request\GetLogsRequest;
-use Kiwi\AliyunSls\Request\PutLogsRequest;
-use Kiwi\AliyunSls\Response\GetLogsResponse;
-use Kiwi\AliyunSls\Response\PutLogsResponse;
+use Aston\AliyunSls\Contact\ClientInterface;
+use Aston\AliyunSls\Request\GetLogsRequest;
+use Aston\AliyunSls\Request\PutLogsRequest;
+use Aston\AliyunSls\Response\GetLogsResponse;
+use Aston\AliyunSls\Response\PutLogsResponse;
 use Psr\Container\ContainerInterface;
 
 /**
  * Client
  * 类的介绍
- * @package Kiwi\AliyunSls
+ * @package Aston\AliyunSls
  */
 class Client implements ClientInterface
 {

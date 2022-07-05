@@ -1,15 +1,15 @@
 <?php
 
-namespace Kiwi\AliyunSls\Contact;
+namespace Aston\AliyunSls\Contact;
 
 
-use Kiwi\AliyunSls\Response\GetLogsResponse;
-use Kiwi\AliyunSls\Response\PutLogsResponse;
+use Aston\AliyunSls\Response\GetLogsResponse;
+use Aston\AliyunSls\Response\PutLogsResponse;
 
 /**
  * ClientInterface
  * 类的介绍
- * @package Kiwi\AliyunSls
+ * @package Aston\AliyunSls
  */
 interface ClientInterface
 {

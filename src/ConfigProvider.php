@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Kiwi\AliyunSls;
+namespace Aston\AliyunSls;
 
 
-use Kiwi\AliyunSls\Contact\ClientFactoryInterface;
-use Kiwi\AliyunSls\Contact\ClientInterface;
-use Kiwi\AliyunSls\Implement\ClientFactory;
+use Aston\AliyunSls\Contact\ClientFactoryInterface;
+use Aston\AliyunSls\Contact\ClientInterface;
+use Aston\AliyunSls\Implement\ClientFactory;
 
 /**
  * ConfigProvider
  * 类的介绍
- * @package Kiwi\AliyunSls
+ * @package Aston\AliyunSls
  */
 class ConfigProvider
 {

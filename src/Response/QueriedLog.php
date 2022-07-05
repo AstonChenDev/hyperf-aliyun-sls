@@ -2,13 +2,13 @@
 
 //declare(strict_types=1);
 
-namespace Kiwi\AliyunSls\Response;
+namespace Aston\AliyunSls\Response;
 
 
 /**
  * QueriedLog
  * The QueriedLog is a log of the GetLogsResponse which obtained from the log.
- * @package Kiwi\AliyunSls\Response
+ * @package Aston\AliyunSls\Response
  * User： 陈朋
  */
 class QueriedLog
@@ -39,7 +39,8 @@ class QueriedLog
      * @param array $contents
      *            log contents, content many key/value pair
      */
-    public function __construct($time, $source, $contents) {
+    public function __construct($time, $source, $contents)
+    {
         $this->time = $time;
         $this->source = $source;
         $this->contents = $contents; // deep copy
@@ -50,7 +51,8 @@ class QueriedLog
      *
      * @return string log source
      */
-    public function getSource() {
+    public function getSource()
+    {
         return $this->source;
     }
 
@@ -59,7 +61,8 @@ class QueriedLog
      *
      * @return integer log time
      */
-    public function getTime() {
+    public function getTime()
+    {
         return $this->time;
     }
 
@@ -68,7 +71,8 @@ class QueriedLog
      *
      * @return array log contents
      */
-    public function getContents() {
+    public function getContents()
+    {
         return $this->contents;
     }
 }

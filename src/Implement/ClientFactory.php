@@ -1,10 +1,10 @@
 <?php
 
-namespace Kiwi\AliyunSls\Implement;
+namespace Aston\AliyunSls\Implement;
 
 use Hyperf\Contract\ConfigInterface;
-use Kiwi\AliyunSls\Contact\ClientFactoryInterface;
-use Kiwi\AliyunSls\Contact\ClientInterface;
+use Aston\AliyunSls\Contact\ClientFactoryInterface;
+use Aston\AliyunSls\Contact\ClientInterface;
 use Psr\Container\ContainerInterface;
 
 class ClientFactory implements ClientFactoryInterface

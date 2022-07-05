@@ -2,13 +2,13 @@
 
 //declare(strict_types=1);
 
-namespace Kiwi\AliyunSls\Response;
+namespace Aston\AliyunSls\Response;
 
 
 /**
  * GetLogsRequest
  * The request used to get data from log server.
- * @package Kiwi\AliyunSls\Response
+ * @package Aston\AliyunSls\Response
  * User： 陈朋
  * Date：2021/6/4
  * Time：下午2:08
@@ -38,17 +38,18 @@ class GetLogsResponse extends Response
      * @param array $header
      *            GetLogs HTTP response header
      */
-    public function __construct($resp, $header) {
-        parent::__construct ( $header );
+    public function __construct($resp, $header)
+    {
+        parent::__construct($header);
         $this->count = $header['x-log-count'];
         $this->progress = $header ['x-log-progress'];
-        $this->logs = array ();
-        foreach ( $resp  as $data ) {
+        $this->logs = array();
+        foreach ($resp as $data) {
             $contents = $data;
             $time = $data ['__time__'];
             $source = $data ['__source__'];
-            unset ( $contents ['__time__'] );
-            unset ( $contents ['__source__'] );
+            unset ($contents ['__time__']);
+            unset ($contents ['__source__']);
             $this->logs [] = make(QueriedLog::class, [$time, $source, $contents]);
         }
     }
@@ -58,7 +59,8 @@ class GetLogsResponse extends Response
      *
      * @return integer log number
      */
-    public function getCount() {
+    public function getCount()
+    {
         return $this->count;
     }
 
@@ -67,7 +69,8 @@ class GetLogsResponse extends Response
      *
      * @return bool true if this logs query is completed
      */
-    public function isCompleted() {
+    public function isCompleted()
+    {
         return $this->progress == 'Complete';
     }
 
@@ -76,7 +79,8 @@ class GetLogsResponse extends Response
      *
      * @return array Aliyun_Log_Models_QueriedLog array, all log data
      */
-    public function getLogs() {
+    public function getLogs()
+    {
         return $this->logs;
     }
 }
