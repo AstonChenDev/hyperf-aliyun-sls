@@ -1,0 +1,41 @@
+{
+  "name": "kiwi/aliyun-sls",
+  "description": "AliYun SLS Log For Hyperf",
+  "type": "library",
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "Kiwi\\AliyunSls\\": "src/"
+    }
+  },
+  "authors": [
+    {
+      "name": "ChenPeng",
+      "email": "chenpeng@kiwiing.com"
+    }
+  ],
+  "minimum-stability": "dev",
+  "require": {
+    "hyperf/guzzle": "^2.0.0",
+    "hyperf/contract": "^2.0.0",
+    "psr/container": "^1.0|^2.0",
+    "php": ">=7.2",
+    "ext-zlib": "*",
+    "ext-json": "*"
+  },
+  "require-dev": {
+    "hyperf/config": "^2.0.0",
+    "hyperf/event": "^2.0.0",
+    "hyperf/framework": "^2.0.0",
+    "hyperf/process": "^2.0.0",
+    "malukenho/docheader": "^0.1.6",
+    "mockery/mockery": "^1.0",
+    "phpunit/phpunit": "^7.0.0",
+    "friendsofphp/php-cs-fixer": "^2.9"
+  },
+  "extra": {
+    "hyperf": {
+      "config": "Kiwi\\AliyunSls\\ConfigProvider"
+    }
+  }
+}
