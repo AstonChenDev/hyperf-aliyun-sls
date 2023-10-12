@@ -214,8 +214,8 @@ class Client implements ClientInterface
             $contents = $logItem->getContents();
             foreach ($contents as $key => $value) {
                 $content = make(LogContent::class);
-                $content->setKey($key);
-                $content->setValue($value);
+                $content->setKey(is_null($key) ? 'null': $key);
+                $content->setValue(is_null($value) ? 'null': $value);
                 $log->addContents($content);
             }
             $logGroup->addLogs($log);
